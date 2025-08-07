@@ -1,18 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const userTableBody = document.querySelector("#userTable tbody");
-  const storedUser = JSON.parse(localStorage.getItem("user"));
-
-  if (storedUser) {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${storedUser.username}</td>
-      <td>${storedUser.email}</td>
-      <td>${storedUser.password}</td>
-    `;
-    userTableBody.appendChild(row);
-  } else {
-    const row = document.createElement("tr");
-    row.innerHTML = `<td colspan="3">🚫 No users found.</td>`;
-    userTableBody.appendChild(row);
-  }
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 Admin Panel</h2>
+    <table id="userTable">
+      <thead>
+        <tr>
+          <th>👤 Username</th>
+          <th>📧 Email</th>
+          <th>🔑 Password</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
